@@ -18,13 +18,7 @@ app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 
 //Route
-app.get('/', function(req, res){
-    const locals = {
-        title: 'Note App',
-        description: 'Free NodeJS App'
-    }
-    res.render('index', locals)
-})
+app.use('/', require('./server/routes/index'))
 
 app.listen(port, ()=>{
     console.log(`App listening on port ${port}`)

@@ -8,7 +8,7 @@ body {
     color: var(--bs-primary-rgb);
     font-weight: 300;
     font-size: 1.2rem;
-    background-image: url(../immg/noise-bg.png);
+    background-image: url('../img/noise-bg.png');
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -24,4 +24,30 @@ h1,h2,h3,h4,h5,h6 {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
     border-radius: 2rem;
+}
+
+
+@media(min-width: 1200px){
+    .home{
+        background: 
+            url('../img/human-1.svg') left bottom no-repeat,
+            url('../img/human-2.svg') right bottom no-repeat,
+            url('../img/noise-bg.png') left top repeat
+            var(--background-color);
+    }
+}
+
+
+.home-title::before{
+    content: url('../img/starts.svg');
+    position: absolute;
+    left: -50px;
+    top: -30px;
+}
+
+.home-title::after{
+    content: url('../img/starts.svg');
+    position: absolute;
+    right: -50px;
+    bottom: -30px;
 }

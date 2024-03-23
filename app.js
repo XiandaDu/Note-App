@@ -19,9 +19,11 @@ app.set('view engine', 'ejs')
 
 //Route
 app.use('/', require('./server/routes/index'))
+app.use('/', require('./server/routes/dashboard'))
 
+//By default it will look for 404.ejs under view folder
 app.get('*', function(req, res){
-    res.status(404).send('404 Page Not Found')
+    res.status(404).render('404')
 })
 
 app.listen(port, ()=>{

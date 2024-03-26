@@ -65,4 +65,18 @@ passport.deserializeUser(async function(id, done){
     }
 });
 
+
+//Log out/Delete User Session
+router.get('/logout', (req, res) => {
+    req.session.destroy(error => {
+        if(error){
+            console.log(error)
+            res.send("Error occured while logging out")
+        } else {
+            res.redirect('/')
+        }
+    })
+})
+
+
 module.exports = router

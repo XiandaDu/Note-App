@@ -40,5 +40,15 @@ exports.dashboard = async(req, res) => {
     } catch (error) {
         console.log(error);
     }
+}
 
+
+
+
+exports.dashboardViewNote = async(req, res) => {
+
+}
+
+exports.dashboardUpdateNote = async(req, res) => {
+    
 }

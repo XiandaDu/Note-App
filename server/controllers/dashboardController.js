@@ -46,9 +46,18 @@ exports.dashboard = async(req, res) => {
 
 
 exports.dashboardViewNote = async(req, res) => {
-
+    const note = await Notes.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
+    if(note){
+        res.render('view-notes', {
+            noteID: req.params.note,
+            note,
+            layout: '../views/layouts/dashboard'
+        })
+    }else{
+        res.send("Something went wrong.")
+    }
 }
 
 exports.dashboardUpdateNote = async(req, res) => {
-    
+
 }

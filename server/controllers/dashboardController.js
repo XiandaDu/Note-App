@@ -49,7 +49,7 @@ exports.dashboardViewNote = async(req, res) => {
     const note = await Notes.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
     if(note){
         res.render('view-notes', {
-            noteID: req.params.note,
+            noteID: req.params.id,
             note,
             layout: '../views/layouts/dashboard'
         })
@@ -59,5 +59,22 @@ exports.dashboardViewNote = async(req, res) => {
 }
 
 exports.dashboardUpdateNote = async(req, res) => {
-
+    try{
+        await Notes.findOneAndUpdate(
+            { _id: req.params.id },
+            { title: req.body.title, body: req.body.body },
+            ).where({ user: req.user.id })
+            res.redirect('/dashboard')
+    }catch(e){
+        console.log(e)
+    }
 }
+
+exports.dashboardDeleteNote = async (req, res) => {
+    try {
+        await Notes.deleteOne({ _id: req.params.id }).where({ user: req.user.id });
+        res.redirect("/dashboard");
+    } catch (error) {
+        console.log(error);
+    }
+  };

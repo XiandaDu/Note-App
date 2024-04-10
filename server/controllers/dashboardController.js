@@ -78,3 +78,10 @@ exports.dashboardDeleteNote = async (req, res) => {
         console.log(error);
     }
   };
+
+
+exports.dashboardAddNote = async (req, res) => {
+    res.render('add', {
+      layout: '../views/layouts/dashboard',
+    });
+  };

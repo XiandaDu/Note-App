@@ -6,6 +6,7 @@ User Authentication: Passport.js is employed for user authentication, allowing u
 Note Management: Users can create, view, update, and delete their notes. Each note can contain various types of content, such as text, images, links, etc.
 Data Persistence: MongoDB is used as the database to store user information and notes, ensuring data persistence across sessions.
 Responsive Design: The application is designed to be responsive, providing a seamless experience across different devices and screen sizes.
+
 ## Installation
 Clone the repository:
 

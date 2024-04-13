@@ -100,7 +100,7 @@ exports.dashboardSearch = async(req, res) => {
     try{
         res.render('search', {
             searchResults: '',
-            layout: '../views/layout/dashboard'
+            layout: '../views/layouts/dashboard'
         })
     }catch(e){
         console.log(e)
@@ -108,5 +108,22 @@ exports.dashboardSearch = async(req, res) => {
 }
 
 exports.dashboardSearchSubmit = async(req, res) => {
+    try{
+        //comes from dashboard_header.ejs
+        let searchTerm = req.body.searchTerm
+        const searchNoSpecialChars = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
+        const searchResults = await Notes.find({
+            $or: [
+                { title: { $regex: new RegExp(searchNoSpecialChars, 'i') }},
+                { body: { $regex: new RegExp(searchNoSpecialChars, 'i') } }
+            ]
+        }).where({user: req.user.id})
 
+        res.render('search', {
+            searchResults,
+            layout: '../views/layouts/dashboard'
+        })
+    }catch(e){
+        console.log(e)
+    }
 }

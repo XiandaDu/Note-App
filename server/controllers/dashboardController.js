@@ -95,3 +95,18 @@ exports.dashboardAddNoteSubmit = async(req, res) => {
         console.log(e)
     }
 }
+
+exports.dashboardSearch = async(req, res) => {
+    try{
+        res.render('search', {
+            searchResults: '',
+            layout: '../views/layout/dashboard'
+        })
+    }catch(e){
+        console.log(e)
+    }
+}
+
+exports.dashboardSearchSubmit = async(req, res) => {
+
+}

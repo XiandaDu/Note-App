@@ -58,9 +58,9 @@ Contributions are welcome! Please feel free to submit issues or pull requests.
 
 ## Improvements in the future
 1. Search results layout change
-2. Add Frequent Q&A
-3. Add about
-4. Add Features
+2. Note tag
+3. Multiple sort methods
+4. Note export, inport and share
 
 ## License
 This project is licensed under the MIT License.
